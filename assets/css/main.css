@@ -532,10 +532,26 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Get Started Section (Updated with Contact Form)
+# Get Started Section with Flex Layout
 --------------------------------------------------------------*/
+.get-started {
+  padding: 60px 0;
+}
+
+.get-started .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 30px;
+}
+
+/* Content Section */
 .get-started .content {
-  padding: 30px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
 }
 
 .get-started .content h3 {
@@ -563,13 +579,22 @@ section {
   color: #444;
 }
 
-/* Contact form styles */
+/* Form Section */
 .get-started form {
+  flex: 1;
   background: #fff;
   padding: 30px;
-  height: 100%;
   border-radius: 8px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  .get-started .row {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 575px) {
@@ -603,6 +628,7 @@ section {
   font-size: 14px;
   padding: 12px 15px;
   border: 1px solid #ccc;
+  margin-bottom: 15px;
   transition: 0.3s;
 }
 
@@ -659,6 +685,7 @@ section {
   color: #fff;
   transition: 0.4s;
   border-radius: 4px;
+  align-self: center;
 }
 
 .get-started form button[type="submit"]:hover {
