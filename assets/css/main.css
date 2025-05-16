@@ -532,7 +532,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Get Started Section
+# Get Started Section (Updated with Contact Form)
 --------------------------------------------------------------*/
 .get-started .content {
   padding: 30px 0;
@@ -560,61 +560,77 @@ section {
 
 .get-started .content p {
   font-size: 14px;
+  color: #444;
 }
 
-.get-started .php-email-form {
+/* Contact form styles */
+.get-started form {
   background: #fff;
   padding: 30px;
   height: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 575px) {
-  .get-started .php-email-form {
+  .get-started form {
     padding: 20px;
   }
 }
 
-.get-started .php-email-form h3 {
-  font-size: 14px;
+.get-started form h3 {
+  font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: var(--color-primary);
 }
 
-.get-started .php-email-form p {
+.get-started form p {
   font-size: 14px;
   margin-bottom: 20px;
+  color: #666;
 }
 
-.get-started .php-email-form .error-message {
+.get-started form .hidden {
   display: none;
-  color: #fff;
-  background: #df1529;
-  text-align: left;
+}
+
+.get-started form .form-control {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.get-started form .form-control:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.get-started form textarea.form-control {
+  resize: vertical;
+}
+
+.get-started form .loading,
+.get-started form .error-message,
+.get-started form .sent-message {
+  display: none;
   padding: 15px;
   margin-bottom: 24px;
   font-weight: 600;
-}
-
-.get-started .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #059652;
   text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
 }
 
-.get-started .php-email-form .loading {
-  display: none;
+.get-started form .loading {
   background: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
+  color: #333;
 }
 
-.get-started .php-email-form .loading:before {
+.get-started form .loading::before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -626,28 +642,17 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.get-started .php-email-form input,
-.get-started .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  border-radius: 0;
+.get-started form .error-message {
+  background: #df1529;
+  color: #fff;
 }
 
-.get-started .php-email-form input:focus,
-.get-started .php-email-form textarea:focus {
-  border-color: var(--color-primary);
+.get-started form .sent-message {
+  background: #059652;
+  color: #fff;
 }
 
-.get-started .php-email-form input {
-  padding: 12px 15px;
-}
-
-.get-started .php-email-form textarea {
-  padding: 12px 15px;
-}
-
-.get-started .php-email-form button[type=submit] {
+.get-started form button[type="submit"] {
   background: var(--color-primary);
   border: 0;
   padding: 10px 30px;
@@ -656,7 +661,7 @@ section {
   border-radius: 4px;
 }
 
-.get-started .php-email-form button[type=submit]:hover {
+.get-started form button[type="submit"]:hover {
   background: rgba(254, 185, 0, 0.8);
 }
 
@@ -669,6 +674,7 @@ section {
     transform: rotate(360deg);
   }
 }
+
 
 /*--------------------------------------------------------------
 # Constructions Section
@@ -2667,91 +2673,3 @@ section {
   color: var(--color-primary);
 }
 
-/* Base form container */
-form {
-  background: #f9f9f9;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* Headings and paragraph */
-form h3 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #2c3e50;
-  text-align: center;
-}
-
-form p {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* Input and textarea styles */
-form input[type="text"],
-form input[type="email"],
-form textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
-}
-
-form input:focus,
-form textarea:focus {
-  outline: none;
-  border-color: #6c63ff;
-  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
-}
-
-/* Honeypot field (hide from users) */
-form .hidden {
-  display: none;
-}
-
-/* Button style */
-form button[type="submit"] {
-  background-color: rgba(254, 185, 0, 0.8);
-  color: #fff;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button[type="submit"]:hover {
-  background-color: rgba(248, 193, 40, 0.8);
-}
-
-/* Loading, success, and error messages */
-.loading,
-.error-message,
-.sent-message {
-  display: none;
-  margin-top: 15px;
-  font-size: 15px;
-  text-align: center;
-}
-
-.sent-message {
-  color: #28a745;
-}
-
-.error-message {
-  color: #dc3545;
-}
-
-.loading {
-  color: #333;
-}
